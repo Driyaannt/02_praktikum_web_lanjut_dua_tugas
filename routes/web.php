@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\ContactMeController;
+
 
 
 /*
@@ -52,9 +54,9 @@ Route::prefix('products')->group(function(){
     });
 
 
-    Route::get('/{news}', function ($news) {
-        return redirect ('https://www.educastudio.com/news');
-    });
+    // Route::get('/{news}', function ($news) {
+    //     return redirect ('https://www.educastudio.com/news');
+    // });
 
     Route::prefix('program')->group(function(){
         Route::get('karir',function(){
@@ -76,6 +78,9 @@ Route::prefix('products')->group(function(){
 
 
     // Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact-us');
-    Route::get('/contact-us', [ContactUsController::class, 'index']);
+    Route::get('/contact-us', [ContactUsController::class, 'contact']);
+
+        // Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact-us');
+    Route::get('/panggil', [ContactMeController::class, 'call']);
 
 
