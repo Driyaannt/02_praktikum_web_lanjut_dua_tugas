@@ -6,7 +6,23 @@ use Illuminate\Http\Request;
 
 class ContactUsController extends Controller
 {
-    public function index(){
-        return view('https://www.educastudio.com/contact-us');
+    public function index()
+    {
+        return '<iframe src="https://www.educastudio.com/contact-us" width="100%" height="100%"></iframe>';
+    }
+
+
+    public function create()
+    {
+        return view('contact-form');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        return "<pre><h3>Judul : $request->title</h3><h3>Deskripsi : $request->description</h3></pre>
+";
     }
 }

@@ -52,9 +52,9 @@ Route::prefix('products')->group(function(){
     });
 
 
-    Route::get('/{news}', function ($news) {
-        return redirect ('https://www.educastudio.com/news');
-    });
+//    Route::get('/{news}', function ($news) {
+//        return redirect ('https://www.educastudio.com/news');
+//    });
 
     Route::prefix('program')->group(function(){
         Route::get('karir',function(){
@@ -75,7 +75,16 @@ Route::prefix('products')->group(function(){
     });
 
 
+Route::resource('/contact-us', ContactUsController::class)->only([
+    'index',
+    'create',
+    'store'
+]);
+Route::fallback(function () {
+    return '404 halaman tidak ditemukan';
+});
+
     // Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact-us');
-    Route::get('/contact-us', [ContactUsController::class, 'index']);
+//    Route::get('/contact-us', [ContactUsController::class, 'index']);
 
 
